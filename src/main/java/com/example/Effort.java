@@ -1,3 +1,4 @@
+package com.example;
 // This class defins what an Effort object is
 
 public class Effort {
