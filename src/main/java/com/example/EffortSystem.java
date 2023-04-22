@@ -1,3 +1,4 @@
+package com.example;
 // This class is responsible for all database operations related to efforts
 
 // Each effort is associated with a taskId

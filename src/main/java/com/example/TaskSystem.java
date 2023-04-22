@@ -1,3 +1,4 @@
+package com.example;
 // This class is responsible for all database operations related to efforts
 
 import java.sql.*;

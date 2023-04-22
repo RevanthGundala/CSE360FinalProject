@@ -1,3 +1,4 @@
+package com.example;
 // This class represents all of the methods that are used to interact with the users database. 
 // It is responsible for creating new users, logging in users, and updating user information.
 

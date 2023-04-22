@@ -1,3 +1,4 @@
+package com.example;
 // This class defins what a User object is
 
 public class User {
