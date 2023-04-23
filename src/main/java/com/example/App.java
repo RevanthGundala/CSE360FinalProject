@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
  
@@ -28,12 +29,18 @@ public class App extends Application{
         }
         
         @Override
-        public void start(Stage primaryStage) {
-            this.primaryStage = primaryStage;
+        public void start(Stage ps) {
+            primaryStage = ps;
+
             primaryStage.setTitle("Effort Logger V.2");
 
 
             primaryStage.setScene(new Scene(createLoginScreen(), 1000, 1000));
+
+
+            //Dev statement to skip login
+            primaryStage.setScene(new LogWindow());
+
 
             primaryStage.setResizable(false);
 
@@ -51,18 +58,7 @@ public class App extends Application{
         // }
         // else{
         //     System.out.println("Account creation failed!");
-        // }
-
-        try{
-           EffortSystem effortSystem = new EffortSystem();
-           boolean success = effortSystem.deleteEffort(1);
-        }
-        catch(Exception e){
-            System.out.println("Error: " + e);
-        }
-
-        
-        
+        // }        
     }
 
 
@@ -83,7 +79,8 @@ public class App extends Application{
         loginButton.setText("Log In");
         createButton.setText("Create Account");
 
-        titleText.fontProperty().set(titleText.getFont().font(20));
+        titleText.getFont();
+        titleText.fontProperty().set(Font.font(20));
 
         //Set Layouts
         vbox.setAlignment(Pos.CENTER);
@@ -151,7 +148,8 @@ public class App extends Application{
         createButton.setText("Create Account");
         backButton.setText("Back");
 
-        titleText.fontProperty().set(titleText.getFont().font(20));
+        titleText.getFont();
+        titleText.fontProperty().set(Font.font(20));
 
         //handle Create Account Attempt
         createButton.setOnAction(new EventHandler<ActionEvent>() {

@@ -31,6 +31,12 @@ public class UserSystem {
             // hash password
             String encrypted_password = hash(password);
             // Connect to the database
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (ClassNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } 
             Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
             // Prepare a SQL query to check if the username and password match a user in the database
             String sql = "INSERT INTO users (email, password, first_name, last_name, role) "
