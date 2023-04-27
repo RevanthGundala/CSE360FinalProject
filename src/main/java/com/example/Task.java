@@ -1,8 +1,6 @@
 package com.example;
 // This class defins what a Task object is
 
-import java.util.List;
-
 public class Task {
     private int taskId;
     private String taskName;
