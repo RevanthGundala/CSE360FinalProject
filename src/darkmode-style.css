@@ -1,0 +1,66 @@
+.root {
+    -fx-background-color: #202225;
+}
+
+#back-button {
+    -fx-background-color: #7289da;
+    -fx-text-fill: rgb(129, 129, 129);
+}
+
+#title-text {
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-text-fill: rgb(129, 129, 129);
+    -fx-alignment: center;
+}
+
+.label {
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: rgb(129, 129, 129);
+}
+
+.text {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -my-custom-text-color: rgb(129, 129, 129);
+  }
+  
+  .text:my-custom-text-color {
+    -fx-fill: -my-custom-text-color;
+  }
+
+.text-field {
+    -fx-background-color: #36393f;
+    -fx-text-fill: rgb(129, 129, 129);
+}
+
+.button {
+    -fx-background-color: #7289da;
+    -fx-text-fill: White;
+}
+
+.button:hover {
+    -fx-background-color: #99aab5;
+}
+
+.tab {
+    -fx-background-color: #7289da;
+    -fx-text-fill: rgb(129, 129, 129);
+}
+
+.tab:hover {
+    -fx-background-color: #99aab5;
+}
+
+.tab-pane {
+    -fx-background-color: #202225;
+}
+
+.scroll-pane {
+    -fx-background-color: #202225;
+}
+

@@ -1,4 +1,5 @@
 package com.example;
+import java.io.File;
 import java.util.List;
 
 import javafx.geometry.Insets;
@@ -6,10 +7,14 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -18,9 +23,36 @@ import javafx.scene.text.Text;
 public class LogWindow extends Scene{
     public LogWindow(){
         super(new HBox(), 1000, 1000);
+
+        String fontSheet =  new App().fileToStylesheetString( new File ("/Users/Work/Documents/Eclipse/CSE360FinalProject/src/darkmode-style.css") );
+        this.getStylesheets().add(fontSheet);
+
+        TabPane tabPane = new TabPane();
+
+        Tab tab1 = new Tab("Effort", new Label("Log Effort"));
+
+        //set the content of tab1 to LOG EFFORT TAB
+        tab1.setContent(LogEffortTab());
+
+        Tab tab2 = new Tab("Tasks"  , new Label("Manage Tasks"));
+
+
+        Tab tab3 = new Tab("Visualize" , new Label("View Effort"));
+
+        tabPane.getTabs().add(tab1);
+        tabPane.getTabs().add(tab2);
+        tabPane.getTabs().add(tab3);
+
+
+        this.setRoot(tabPane);
+
+
+    }
+
+
+    public HBox LogEffortTab(){
         EffortSystem effortSystem = new EffortSystem();
         TaskSystem taskSystem  = new TaskSystem();
-
 
         VBox vBox = new VBox();
         HBox hBox = new HBox();
@@ -51,11 +83,6 @@ public class LogWindow extends Scene{
         effortNameTextField.setPromptText("Effort Name");
         effortDescriptionTextField.setPromptText("Effort Description");
         effortHoursTextField.setPromptText("Effort Hours");
-
-        //Set Field backgrounds
-        effortNameTextField.setStyle("-fx-background-color: #FFFFFF");
-        effortDescriptionTextField.setStyle("-fx-background-color: #FFFFFF");
-        effortHoursTextField.setStyle("-fx-background-color: #FFFFFF");
 
         //Set Field sizes
         effortDescriptionTextField.setPrefWidth(500);
@@ -105,8 +132,18 @@ public class LogWindow extends Scene{
         hBox.getChildren().add(scrollPane);
         hBox.getChildren().add(vBox);
 
-        this.setRoot(hBox);
-
-
+        return hBox;
     }
+
+
+    public HBox ManageTasksTab(){
+        return null;
+    }
+
+
+    public HBox ViewEffortTab(){
+        return null;
+    }
+
+
 }
