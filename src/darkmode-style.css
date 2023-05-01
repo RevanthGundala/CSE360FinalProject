@@ -4,14 +4,14 @@
 
 #back-button {
     -fx-background-color: #7289da;
-    -fx-text-fill: rgb(129, 129, 129);
+    -fx-text-fill: rgb(255, 255, 255);
 }
 
 #title-text {
     -fx-font-family: "Arial";
     -fx-font-weight: bold;
     -fx-font-size: 20;
-    -fx-text-fill: rgb(129, 129, 129);
+    -fx-text-fill: rgb(255, 255, 255);
     -fx-alignment: center;
 }
 
@@ -19,14 +19,14 @@
     -fx-font-family: Arial;
     -fx-font-weight: bold;
     -fx-font-size: 14px;
-    -fx-text-fill: rgb(129, 129, 129);
+    -fx-text-fill: rgb(255, 255, 255);
 }
 
 .text {
     -fx-font-family: "Arial";
     -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -my-custom-text-color: rgb(129, 129, 129);
+    -my-custom-text-color: rgb(255, 255, 255);
   }
   
   .text:my-custom-text-color {
@@ -35,7 +35,7 @@
 
 .text-field {
     -fx-background-color: #36393f;
-    -fx-text-fill: rgb(129, 129, 129);
+    -fx-text-fill: rgb(255, 255, 255);
 }
 
 .button {
@@ -49,7 +49,7 @@
 
 .tab {
     -fx-background-color: #7289da;
-    -fx-text-fill: rgb(129, 129, 129);
+    -fx-text-fill: rgb(255, 255, 255);
 }
 
 .tab:hover {
@@ -63,4 +63,3 @@
 .scroll-pane {
     -fx-background-color: #202225;
 }
-
