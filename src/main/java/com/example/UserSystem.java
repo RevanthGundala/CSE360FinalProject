@@ -1,4 +1,3 @@
-package com.example;
 // This class represents all of the methods that are used to interact with the users database. 
 // It is responsible for creating new users, logging in users, and updating user information.
 
@@ -20,6 +19,7 @@ public class UserSystem {
         dbPassword = "password";
     }
     
+    // this method creates a new user
     public boolean createNewUser(String email, String password, String firstName, String lastName) {
         boolean createAccountSuccess = false;
         try {
@@ -31,19 +31,11 @@ public class UserSystem {
             // hash password
             String encrypted_password = hash(password);
             // Connect to the database
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-            } catch (ClassNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } 
             Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
             // Prepare a SQL query to check if the username and password match a user in the database
             String sql = "INSERT INTO users (email, password, first_name, last_name, role) "
                          + "VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
-
-            // NOTE: Current roles are only admin and user, can add manager or other roles later
             
             // Set the parameters for the query
             stmt.setString(1, email);
@@ -56,7 +48,6 @@ public class UserSystem {
             else{
                 stmt.setString(5, "user");
             }
-            //stmt.setTimestamp(6, new Timestamp(System.currentTimeMillis()));
             
             // Execute the query and check if there is a matching user in the database
             int rowsAffected = stmt.executeUpdate();
@@ -76,6 +67,7 @@ public class UserSystem {
         return createAccountSuccess;
     }
 
+    // this method returns a user
     public User getUser(int userId){
         User user = null;
         try {
@@ -111,6 +103,7 @@ public class UserSystem {
         return user;
     }
 
+    // this method updates a user with new information
     public boolean updateUser(int userId, String newEmail, String newPassword, String newFirstName, String newLastName){
         boolean updateAccountSuccess = false;
         try {
@@ -126,8 +119,6 @@ public class UserSystem {
             // Prepare a SQL query to check if the username and password match a user in the database
             String sql = "UPDATE users SET email = ?, password = ?, first_name = ?, last_name = ?, role = ? WHERE user_id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
-
-            // NOTE: Current roles are only admin and user, can add manager or other roles later
             
             // Set the parameters for the query
             stmt.setString(1, newEmail);
@@ -141,8 +132,6 @@ public class UserSystem {
                 stmt.setString(5, "user");
             }
             stmt.setInt(6, userId);
-
-            //stmt.setTimestamp(7, new Timestamp(System.currentTimeMillis()));
             
             // Execute the query and check if there is a matching user in the database
             int rowsAffected = stmt.executeUpdate();
@@ -162,6 +151,7 @@ public class UserSystem {
         return updateAccountSuccess;
     }
 
+    // this method deletes a user
     public boolean deleteUser(int userId){
         boolean deleteUserSuccess = false;
         try{
@@ -217,16 +207,17 @@ public class UserSystem {
         return userId;
     }
 
-
+    // this method validates the input to prevent SQL injection
     public static boolean validateInputForSQLQuery(String userInput){
 		///The pattern is the regex method of specifying allowed characters
-		//in this case I have allowed upper and lower case letters and the top 8 special characters
+		//in this case upper and lower case letters and the top 8 special characters
 		//which are not malicious
 		Pattern pattern = Pattern.compile("^[a-zA-Z0-9!@#$%^&*?]*$");
 		Matcher matcher = pattern.matcher(userInput);
 		return matcher.matches();
 	}
 
+    // this method hashes the password using SHA-256
     public static String hash(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
