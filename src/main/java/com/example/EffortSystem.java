@@ -1,4 +1,3 @@
-package com.example;
 // This class is responsible for all database operations related to efforts
 
 // Each effort is associated with a taskId
@@ -14,11 +13,12 @@ public class EffortSystem {
     private String dbPassword;
 
     public EffortSystem(){
-        dbUrl = "jdbc:mysql://localhost:3306/localuser"; // 'loginuser' is the name of the database on my local computer
+        dbUrl = "jdbc:mysql://localhost:3306/loginuser"; // 'loginuser' is the name of the database on my local computer
         dbUsername = "root";
         dbPassword = "password";
     }
 
+    // this method creates a new effort for a task
     public boolean createEffortForTask(int taskId, String effortName, String effortDescription, int effortHours) {
         boolean createEffortForTaskSuccess = false;
         try {
@@ -47,6 +47,7 @@ public class EffortSystem {
         return createEffortForTaskSuccess;
     }
 
+    // this method gets all efforts in the database
     public List<Effort> getAllEfforts() {
         List<Effort> efforts = new ArrayList<>();
         try {
@@ -103,6 +104,7 @@ public class EffortSystem {
         return efforts;
     }
 
+    // Get a specific effort given an effortId
     public Effort getSpecificEffort(int effortId){
         Effort effort = null;
         try {
@@ -130,6 +132,7 @@ public class EffortSystem {
         return effort;
     }
 
+    // Update effort given new values
     public boolean updateEffort(int effortId, int taskId, String newEffortName, String newEffortDescription, int newEffortHours){
         boolean updateEffortSuccess = false;
         try{
@@ -157,6 +160,7 @@ public class EffortSystem {
         return updateEffortSuccess;
     }
 
+    // delete effort given effortId
     public boolean deleteEffort(int effortId){
         boolean deleteEffortSuccess = false;
         try{
