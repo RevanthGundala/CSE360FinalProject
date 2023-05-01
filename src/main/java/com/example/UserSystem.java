@@ -14,7 +14,7 @@ public class UserSystem {
 
     // Constructor
     public UserSystem(){
-        dbUrl = "jdbc:mysql://localhost:3306/loginuser"; // 'loginuser' is the name of the database on my local computer
+        dbUrl = "jdbc:mysql://localhost:42069/loginuser"; // 'loginuser' is the name of the database on my local computer
         dbUsername = "root";
         dbPassword = "password";
     }
