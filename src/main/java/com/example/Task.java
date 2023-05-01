@@ -1,4 +1,3 @@
-package com.example;
 // This class defins what a Task object is
 
 public class Task {
@@ -6,12 +5,14 @@ public class Task {
     private String taskName;
     private String taskDescription;
 
+    // Constructor
     public Task(int taskId, String taskName, String taskDescription, int estimatedHours) {
         this.taskId = taskId;
         this.taskName = taskName;
         this.taskDescription = taskDescription;
     }
 
+    // Getters and Setters
     public int getTaskId() {
         return taskId;
     }
