@@ -1,4 +1,3 @@
-package com.example;
 // This class defins what an Effort object is
 
 public class Effort {
@@ -8,6 +7,8 @@ public class Effort {
     private String effortDescription;
     private int effortHours;
 
+
+    // Constructor
     public Effort(int effortId, int taskId, String effortName, String effortDescription, int effortHours) {
         this.effortId = effortId;
         this.taskId = taskId;
@@ -16,6 +17,7 @@ public class Effort {
         this.effortDescription = effortDescription;
     }
 
+    // Getters and Setters
     public int getEffortId() {
         return effortId;
     }
@@ -55,6 +57,4 @@ public class Effort {
     public void seteffortHours(int effortHours) {
         this.effortHours = effortHours;
     }
-
-    
 }
