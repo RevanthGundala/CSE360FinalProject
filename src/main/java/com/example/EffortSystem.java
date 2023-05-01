@@ -33,6 +33,7 @@ public class EffortSystem {
 
             // Execute the query
             int rowsAffected = stmt.executeUpdate();
+            // Only update if there is something to update
             if (rowsAffected > 0) {
                 createEffortForTaskSuccess = true;
                 System.out.println("Effort inserted successfully!");
@@ -68,6 +69,7 @@ public class EffortSystem {
                 Effort effort = new Effort(effortId, taskId, effortName, effortDescription, effortHours);
                 efforts.add(effort);
             }
+          // Catch SQL error
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -135,6 +137,7 @@ public class EffortSystem {
     // Update effort given new values
     public boolean updateEffort(int effortId, int taskId, String newEffortName, String newEffortDescription, int newEffortHours){
         boolean updateEffortSuccess = false;
+        // Update efforts
         try{
             String sql = "UPDATE efforts SET effort_name = ?, effort_description = ?, effort_hours = ? WHERE task_id = ? and effort_id = ?";
             Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
@@ -153,6 +156,7 @@ public class EffortSystem {
             } else {
                 System.out.println("Failed to update task.");
             }
+            // Catch SQL error
         }catch(SQLException e){
             e.printStackTrace();
         }
