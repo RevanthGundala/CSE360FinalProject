@@ -1,4 +1,3 @@
-package com.example;
 // This class defins what a User object is
 
 public class User {
@@ -9,6 +8,7 @@ public class User {
     private String lastName;
     private String role;
 
+    // Constructor
     public User(int id, String email, String password, String firstName, String lastName, String role) {
         this.id = id;
         this.email = email;
